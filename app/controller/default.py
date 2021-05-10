@@ -1,21 +1,21 @@
 from flask import Flask, render_template, request, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
 from app import app, db
-from app.model.tables import Cliente
+from app.model.tables import Aluno
 
 @app.route("/")
 def index():
     #selecionar todos - select * from
-    clientes = Cliente.query.all()
-    return render_template("index.html", clientes=clientes)
+    alunos = Aluno.query.all()
+    return render_template("index.html", alunos=alunos)
 
 @app.route("/add", methods=['GET', 'POST'])
 def add():
     if request.method == 'POST':
-        # crio um objeto cliente com os dados do formulario
-        cliente = Cliente(request.form['nome'], request.form['comentario'], request.form['email'], request.form['cep'], request.form['rua'], request.form['bairro'], request.form['cidade'], request.form['uf'], request.form['numero'])
-        # adiciono o cliente (insert into)
-        db.session.add(cliente)
+        # crio um objeto aluno com os dados do formulario
+        aluno = Aluno(request.form['nome'], request.form['email'], request.form['cep'], request.form['rua'], request.form['numero'], request.form['complemento'], request.form['bairro'], request.form['cidade'], request.form['uf'])
+        # adiciono o aluno (insert into)
+        db.session.add(aluno)
         db.session.commit()
         return redirect(url_for('index'))
     return render_template("add.html")
@@ -23,24 +23,24 @@ def add():
 @app.route("/edit/<int:ra>", methods=['GET', 'POST'])
 def edit(ra):
     # select from
-    cliente = Cliente.query.get(ra)
+    aluno = Aluno.query.get(ra)
     if request.method == 'POST':
-        cliente.name = request.form['nome']
-        cliente.comment = request.form['comentario']
-        cliente.email = request.form['email']
-        cliente.cep = request.form['cep']
-        cliente.rua = request.form['rua']
-        cliente.bairro = request.form['bairro']
-        cliente.cidade = request.form['cidade']
-        cliente.uf = request.form['uf']
-        cliente.numero = request.form['numero']
+        aluno.name = request.form['nome']
+        aluno.email = request.form['email']
+        aluno.cep = request.form['cep']
+        aluno.rua = request.form['rua']
+        aluno.bairro = request.form['bairro']
+        aluno.cidade = request.form['cidade']
+        aluno.uf = request.form['uf']
+        aluno.numero = request.form['numero']
+        aluno.complemento = request.form['complemento']
         db.session.commit()
         return redirect(url_for('index'))
-    return render_template("edit.html", cliente = cliente)
+    return render_template("edit.html", aluno = aluno)
  
 @app.route("/delete/<int:ra>")
 def delete(ra):
-    cliente = Cliente.query.get(ra)
-    db.session.delete(cliente)
+    aluno = Aluno.query.get(ra)
+    db.session.delete(aluno)
     db.session.commit()
     return redirect(url_for('index'))

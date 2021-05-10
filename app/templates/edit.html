@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Atualizar Cliente</title>
+    <title>Atualizar Aluno</title>
     <link type="text/css" href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
     <script>
     
@@ -75,43 +75,43 @@
 </head>
 <body>
     <div class="container">
-        <h1>Atualizar Cliente</h1>
-        <form  action="/edit/{{cliente.ra}}" method="POST">
+        <h1>Atualizar Aluno</h1>
+        <form  action="/edit/{{aluno.ra}}" method="POST">
             <div class="form-group">
                 <label for="usr">Nome:</label>
-                <input type="text" value="{{cliente.name}}" class="form-control" id="usr" name="nome">
-            </div>
-            <div class="form-group">
-                <label for="pwd">Comentário:</label>
-                <input type="text" value="{{cliente.comment}}" class="form-control" id="pwd" name="comentario">
+                <input type="text" value="{{aluno.name}}" class="form-control" id="usr" name="nome">
             </div>
             <div class="form-group">
                 <label for="pwd">Email:</label>
-                <input type="text" value="{{cliente.email}}" class="form-control" id="pwd" name="email">
+                <input type="text" value="{{aluno.email}}" class="form-control" id="pwd" name="email">
             </div> 
             <div class="form-group">
                 <label for="pwd">CEP:</label>
-                <input type="text" value="{{cliente.cep}}" class="form-control" id="cep" name="cep" onblur="pesquisacep(this.value);">
+                <input type="text" value="{{aluno.cep}}" class="form-control" id="cep" name="cep" onblur="pesquisacep(this.value);">
             </div> 
             <div class="form-group">
                 <label for="pwd">Rua:</label>
-                <input type="text" value="{{cliente.rua}}" class="form-control" id="rua" name="rua">
+                <input type="text" value="{{aluno.rua}}" class="form-control" id="rua" name="rua">
+            </div>
+            <div class="form-group">
+                <label for="pwd">Numero:</label>
+                <input type="text" value="{{aluno.numero}}" class="form-control" id="pwd" name="numero">
             </div> 
             <div class="form-group">
+                <label for="pwd">Complemento:</label>
+                <input type="text" value="{{aluno.complemento}}" class="form-control" id="pwd" name="complemento">
+            </div>
+            <div class="form-group">
                 <label for="pwd">Bairro:</label>
-                <input type="text" value="{{cliente.bairro}}" class="form-control" id="bairro" name="bairro">
+                <input type="text" value="{{aluno.bairro}}" class="form-control" id="bairro" name="bairro">
             </div>
             <div class="form-group">
                 <label for="pwd">Cidade:</label>
-                <input type="text" value="{{cliente.cidade}}" class="form-control" id="cidade" name="cidade">
+                <input type="text" value="{{aluno.cidade}}" class="form-control" id="cidade" name="cidade">
             </div>
             <div class="form-group">
                 <label for="pwd">UF:</label>
-                <input type="text" value="{{cliente.uf}}" class="form-control" id="uf" name="uf">
-            </div> 
-            <div class="form-group">
-                <label for="pwd">Numero:</label>
-                <input type="text" value="{{cliente.numero}}" class="form-control" id="pwd" name="numero">
+                <input type="text" value="{{aluno.uf}}" class="form-control" id="uf" name="uf">
             </div> 
             <button type="submit" class="btn btn-success">Atualizar</button> 
         </form>
