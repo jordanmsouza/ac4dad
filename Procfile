@@ -1,1 +1,1 @@
-web: python primos.py
+web: run.py
