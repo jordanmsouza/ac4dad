@@ -79,11 +79,11 @@
         <form  action="/edit/{{aluno.ra}}" method="POST">
             <div class="form-group">
                 <label for="usr">Nome:</label>
-                <input type="text" value="{{aluno.name}}" class="form-control" id="usr" name="nome">
+                <input type="text" required="" value="{{aluno.name}}" class="form-control" id="usr" name="nome">
             </div>
             <div class="form-group">
                 <label for="pwd">Email:</label>
-                <input type="text" value="{{aluno.email}}" class="form-control" id="pwd" name="email">
+                <input type="email" value="{{aluno.email}}" class="form-control" id="pwd" name="email">
             </div> 
             <div class="form-group">
                 <label for="pwd">CEP:</label>
@@ -95,7 +95,7 @@
             </div>
             <div class="form-group">
                 <label for="pwd">Numero:</label>
-                <input type="text" value="{{aluno.numero}}" class="form-control" id="pwd" name="numero">
+                <input type="text" required="" value="{{aluno.numero}}" class="form-control" id="pwd" name="numero">
             </div> 
             <div class="form-group">
                 <label for="pwd">Complemento:</label>
@@ -103,15 +103,15 @@
             </div>
             <div class="form-group">
                 <label for="pwd">Bairro:</label>
-                <input type="text" value="{{aluno.bairro}}" class="form-control" id="bairro" name="bairro">
+                <input type="text" required="" value="{{aluno.bairro}}" class="form-control" id="bairro" name="bairro">
             </div>
             <div class="form-group">
                 <label for="pwd">Cidade:</label>
-                <input type="text" value="{{aluno.cidade}}" class="form-control" id="cidade" name="cidade">
+                <input type="text"  required="" value="{{aluno.cidade}}" class="form-control" id="cidade" name="cidade">
             </div>
             <div class="form-group">
                 <label for="pwd">UF:</label>
-                <input type="text" value="{{aluno.uf}}" class="form-control" id="uf" name="uf">
+                <input type="text" required="" value="{{aluno.uf}}" class="form-control" id="uf" name="uf">
             </div> 
             <button type="submit" class="btn btn-success">Atualizar</button> 
         </form>
