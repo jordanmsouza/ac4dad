@@ -13,7 +13,7 @@ def index():
 def add():
     if request.method == 'POST':
         # crio um objeto aluno com os dados do formulario
-        aluno = Aluno(request.form['nome'], request.form['email'], request.form['cep'], request.form['rua'], request.form['numero'], request.form['complemento'], request.form['bairro'], request.form['cidade'], request.form['uf'])
+        aluno = Aluno(request.form['name'], request.form['email'], request.form['cep'], request.form['rua'], request.form['numero'], request.form['complemento'], request.form['bairro'], request.form['cidade'], request.form['uf'])
         # adiciono o aluno (insert into)
         db.session.add(aluno)
         db.session.commit()
@@ -25,7 +25,7 @@ def edit(ra):
     # select from
     aluno = Aluno.query.get(ra)
     if request.method == 'POST':
-        aluno.name = request.form['nome']
+        aluno.name = request.form['name']
         aluno.email = request.form['email']
         aluno.cep = request.form['cep']
         aluno.rua = request.form['rua']
